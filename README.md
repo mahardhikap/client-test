@@ -12,3 +12,6 @@ enjoy
 ```
 npm run dev
 ```
+
+Live preview:
+https://client-test-delta.vercel.app/home
