@@ -4,13 +4,13 @@ let url = import.meta.env.VITE_BASE_URL;
 import Swal from 'sweetalert2';
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [showCart, setShowCart] = useState([]);
-  const handleCheckout = (id) => {
+  const handleCheckout = (id, product, photo) => {
     axios.put(`${url}/cart/${id}`).then(() =>
       Swal.fire({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: 'https://unsplash.it/400/200',
-        imageWidth: 400,
+        title: 'Confirm Payment',
+        text: product,
+        imageUrl: photo,
+        imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
@@ -115,7 +115,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     </div>
                     <button
                       className="bg-[#40BFFF] py-2 w-full font-medium text-xs text-white truncate break-words bg-[#EC6D62]"
-                      onClick={() => handleCheckout(item.id_produk)}
+                      onClick={() => handleCheckout(item.id_produk, item.nama_produk, item.foto_produk)}
                     >
                       Checkout
                     </button>
