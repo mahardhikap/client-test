@@ -13,6 +13,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Custom image',
+      }).then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Payment success!',
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => window.location.reload());
       })
     );
   };
